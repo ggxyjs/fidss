@@ -1,0 +1,1974 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+<!-- 
+    <filter>
+    	<filter-name>CharEncodingFilter</filter-name>
+    	<filter-class>common.util.filter.CharEncodingFilter</filter-class>
+    	<init-param>
+    		<param-name>encoding</param-name>
+    		<param-value>UTF-8</param-value>
+    	</init-param>
+    </filter>
+    <filter-mapping>
+    	<filter-name>CharEncodingFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
+    	<dispatcher>REQUEST</dispatcher>
+    	<dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    
+    <mime-mapping> 
+        <extension>htm</extension> 
+        <mime-type>text/html;charset=utf-8</mime-type> 
+    </mime-mapping> 
+    <mime-mapping> 
+        <extension>html</extension> 
+        <mime-type>text/html;charset=utf-8</mime-type> 
+    </mime-mapping>
+-->    
+<!-- ********************Begin System Listener******************** -->
+	<listener>
+		<listener-class>systimetask.SysContextListenerUpdateTask</listener-class>
+	</listener>
+<!-- *********************End System Listener********************* -->	
+	
+<!-- ********************Begin Login/Logout******************** -->
+	<!-- Login -->
+	<servlet>
+		<description>Login</description>
+		<display-name>Login</display-name>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>servlet.login.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+<!-- *********************End Login/Logout********************* -->
+
+<!-- ********************Begin AdminPage******************** -->
+
+	<!-- Show add role form -->
+	<servlet>
+		<description>Show add role form</description>
+		<display-name>Show add role form</display-name>
+		<servlet-name>ShowAddRoleFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowAddRoleFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddRoleFormServlet</servlet-name>
+		<url-pattern>/ShowAddRoleFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Check role title -->
+	<servlet>
+		<description>Check role title</description>
+		<display-name>Check role title</display-name>
+		<servlet-name>CheckRoleTitleServlet</servlet-name>
+		<servlet-class>servlet.admin.CheckRoleTitleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CheckRoleTitleServlet</servlet-name>
+		<url-pattern>/CheckRoleTitleServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Add role -->
+	<servlet>
+		<description>Add role</description>
+		<display-name>Add role</display-name>
+		<servlet-name>AddRoleServlet</servlet-name>
+		<servlet-class>servlet.admin.AddRoleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddRoleServlet</servlet-name>
+		<url-pattern>/AddRoleServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show manage role form -->
+	<servlet>
+		<description>Show manage role form</description>
+		<display-name>Show manage role form</display-name>
+		<servlet-name>ShowMgntRoleFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowMgntRoleFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowMgntRoleFormServlet</servlet-name>
+		<url-pattern>/ShowMgntRoleFormServlet</url-pattern>
+	</servlet-mapping>	
+	
+	<!-- Show view role form -->
+	<servlet>
+		<description>Show view role form</description>
+		<display-name>Show view role form</display-name>
+		<servlet-name>ShowViewRoleFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowViewRoleFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowViewRoleFormServlet</servlet-name>
+		<url-pattern>/ShowViewRoleFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete role -->
+	<servlet>
+		<description>Delete role</description>
+		<display-name>Delete role</display-name>
+		<servlet-name>DelRoleServlet</servlet-name>
+		<servlet-class>servlet.admin.DelRoleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelRoleServlet</servlet-name>
+		<url-pattern>/DelRoleServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show add authority to role form -->
+	<servlet>
+		<description>Show add authority to role form</description>
+		<display-name>Show add authority to role form</display-name>
+		<servlet-name>ShowAddAthyToRoleFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowAddAthyToRoleFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddAthyToRoleFormServlet</servlet-name>
+		<url-pattern>/ShowAddAthyToRoleFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Add authority to role -->
+	<servlet>
+		<description>Add authority to role</description>
+		<display-name>Add authority to role</display-name>
+		<servlet-name>AddAthyToRoleServlet</servlet-name>
+		<servlet-class>servlet.admin.AddAthyToRoleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddAthyToRoleServlet</servlet-name>
+		<url-pattern>/AddAthyToRoleServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show delete authority from role form -->
+	<servlet>
+		<description>Show delete authority from role form</description>
+		<display-name>Show delete authority from role form</display-name>
+		<servlet-name>ShowDelAthyFromRoleFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowDelAthyFromRoleFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDelAthyFromRoleFormServlet</servlet-name>
+		<url-pattern>/ShowDelAthyFromRoleFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete authority from role -->
+	<servlet>
+		<description>Delete authority from role</description>
+		<display-name>Delete authority from role</display-name>
+		<servlet-name>DelAthyFromRoleServlet</servlet-name>
+		<servlet-class>servlet.admin.DelAthyFromRoleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelAthyFromRoleServlet</servlet-name>
+		<url-pattern>/DelAthyFromRoleServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show add user form -->
+	<servlet>
+		<description>Show add user form</description>
+		<display-name>Show add user form</display-name>
+		<servlet-name>ShowAddUserFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowAddUserFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddUserFormServlet</servlet-name>
+		<url-pattern>/ShowAddUserFormServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- Add user -->
+	<servlet>
+		<description>Add user</description>
+		<display-name>Add user</display-name>
+		<servlet-name>AddUserServlet</servlet-name>
+		<servlet-class>servlet.admin.AddUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddUserServlet</servlet-name>
+		<url-pattern>/AddUserServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Check username -->
+	<servlet>
+		<description>Check username</description>
+		<display-name>Check username</display-name>
+		<servlet-name>CheckUsernameServlet</servlet-name>
+		<servlet-class>servlet.admin.CheckUsernameServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CheckUsernameServlet</servlet-name>
+		<url-pattern>/CheckUsernameServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show manage user form -->
+	<servlet>
+		<description>Show manage user form</description>
+		<display-name>Show manage user form</display-name>
+		<servlet-name>ShowMgntUserFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowMgntUserFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowMgntUserFormServlet</servlet-name>
+		<url-pattern>/ShowMgntUserFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show assign role form -->
+	<servlet>
+		<description>Show assign role form</description>
+		<display-name>Show assign role form</display-name>
+		<servlet-name>ShowAssignRoleFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowAssignRoleFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAssignRoleFormServlet</servlet-name>
+		<url-pattern>/ShowAssignRoleFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show assign role to user form -->
+	<servlet>
+		<description>Show assign role to user form</description>
+		<display-name>Show assign role to user form</display-name>
+		<servlet-name>ShowAssignRoleToUserFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowAssignRoleToUserFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAssignRoleToUserFormServlet</servlet-name>
+		<url-pattern>/ShowAssignRoleToUserFormServlet</url-pattern>
+	</servlet-mapping>
+		
+	<!-- Assign role to user -->
+	<servlet>
+		<description>Assign role to user</description>
+		<display-name>Assign role to user</display-name>
+		<servlet-name>AssignRoleToUserServlet</servlet-name>
+		<servlet-class>servlet.admin.AssignRoleToUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AssignRoleToUserServlet</servlet-name>
+		<url-pattern>/AssignRoleToUserServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show enable search engine form -->
+	<servlet>
+		<description>Show enable search engine of organization form</description>
+		<display-name>Show enable search engine of organization form</display-name>
+		<servlet-name>ShowEnableSeOfOrgFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowEnableSeOfOrgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowEnableSeOfOrgFormServlet</servlet-name>
+		<url-pattern>/ShowEnableSeOfOrgFormServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- Enable search engine of organization -->
+	<servlet>
+		<description>Enable search engine of organization</description>
+		<display-name>Enable search engine of organization</display-name>
+		<servlet-name>EnableSeOfOrgServlet</servlet-name>
+		<servlet-class>servlet.admin.EnableSeOfOrgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EnableSeOfOrgServlet</servlet-name>
+		<url-pattern>/EnableSeOfOrgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show disable search engine form -->
+	<servlet>
+		<description>Show disable search engine of organization form</description>
+		<display-name>Show disable search engine of organization form</display-name>
+		<servlet-name>ShowDisableSeOfOrgFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowDisableSeOfOrgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDisableSeOfOrgFormServlet</servlet-name>
+		<url-pattern>/ShowDisableSeOfOrgFormServlet</url-pattern>
+	</servlet-mapping>	
+	
+	<!-- Disable search engine of organization -->
+	<servlet>
+		<description>Disable search engine of organization</description>
+		<display-name>Disable search engine of organization</display-name>
+		<servlet-name>DisableSeOfOrgServlet</servlet-name>
+		<servlet-class>servlet.admin.DisableSeOfOrgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DisableSeOfOrgServlet</servlet-name>
+		<url-pattern>/DisableSeOfOrgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Delete User Form -->
+	<servlet>
+		<description>Show Delete User Form</description>
+		<display-name>Show Delete User Form</display-name>
+		<servlet-name>ShowDelUserFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowDelUserFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDelUserFormServlet</servlet-name>
+		<url-pattern>/ShowDelUserFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete User -->
+	<servlet>
+		<description>Delete User</description>
+		<display-name>Delete User</display-name>
+		<servlet-name>DelUserServlet</servlet-name>
+		<servlet-class>servlet.admin.DelUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelUserServlet</servlet-name>
+		<url-pattern>/DelUserServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Mgnt VPN Form -->
+	<servlet>
+		<description>Show Mgnt VPN Form</description>
+		<display-name>Show Mgnt VPN Form</display-name>
+		<servlet-name>ShowMgntVpnFormServlet</servlet-name>
+		<servlet-class>servlet.admin.ShowMgntVpnFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowMgntVpnFormServlet</servlet-name>
+		<url-pattern>/ShowMgntVpnFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Mgnt VPN -->
+	<servlet>
+		<description>Mgnt VPN</description>
+		<display-name>Mgnt VPN</display-name>
+		<servlet-name>MgntVpnServlet</servlet-name>
+		<servlet-class>servlet.admin.MgntVpnServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MgntVpnServlet</servlet-name>
+		<url-pattern>/MgntVpnServlet</url-pattern>
+	</servlet-mapping>
+
+<!-- *********************End AdminPage********************* -->
+
+<!-- ********************Begin UserPage******************** -->
+    <!-- Add user group -->
+	<servlet>
+		<description>Add user group</description>
+		<display-name>Add user group</display-name>
+		<servlet-name>AddUgServlet</servlet-name>
+		<servlet-class>servlet.user.AddUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddUgServlet</servlet-name>
+		<url-pattern>/AddUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete user group -->
+	<servlet>
+		<description>Delete user group</description>
+		<display-name>Delete user group</display-name>
+		<servlet-name>DelUgServlet</servlet-name>
+		<servlet-class>servlet.user.DelUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelUgServlet</servlet-name>
+		<url-pattern>/DelUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show edit user info form -->
+	<servlet>
+		<description>Show edit user info form</description>
+		<display-name>Show edit user info form</display-name>
+		<servlet-name>ShowEditUserInfoFormServlet</servlet-name>
+		<servlet-class>servlet.user.ShowEditUserInfoFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowEditUserInfoFormServlet</servlet-name>
+		<url-pattern>/ShowEditUserInfoFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Edit user information -->
+	<servlet>
+		<description>Edit user information</description>
+		<display-name>Edit user information</display-name>
+		<servlet-name>EditUserInfoServlet</servlet-name>
+		<servlet-class>servlet.user.EditUserInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditUserInfoServlet</servlet-name>
+		<url-pattern>/EditUserInfoServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show management user of user group form -->
+	<servlet>
+		<description>Show management user of user group form</description>
+		<display-name>Show management user of user group form</display-name>
+		<servlet-name>ShowMgntUserOfUgFormServlet</servlet-name>
+		<servlet-class>servlet.user.ShowMgntUserOfUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowMgntUserOfUgFormServlet</servlet-name>
+		<url-pattern>/ShowMgntUserOfUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show management user group form -->
+	<servlet>
+		<description>Show management user group form</description>
+		<display-name>Show management user group form</display-name>
+		<servlet-name>ShowMgntUgFormServlet</servlet-name>
+		<servlet-class>servlet.user.ShowMgntUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowMgntUgFormServlet</servlet-name>
+		<url-pattern>/ShowMgntUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<description>Show management user group form</description>
+		<display-name>Show management user group form</display-name>
+		<servlet-name>ShowMgntUgFormDel</servlet-name>
+		<servlet-class>servlet.user.ShowMgntUgFormDel</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowMgntUgFormDel</servlet-name>
+		<url-pattern>/ShowMgntUgFormDel</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show view user group form -->
+	<servlet>
+		<description>Show view user group created form</description>
+		<display-name>Show view user group created form</display-name>
+		<servlet-name>ShowViewUgCreatedFormServlet</servlet-name>
+		<servlet-class>servlet.user.ShowViewUgCreatedFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowViewUgCreatedFormServlet</servlet-name>
+		<url-pattern>/ShowViewUgCreatedFormServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- Show edit user group description form -->
+	<servlet>
+		<description>Show edit user group summary form</description>
+		<display-name>Show edit user group summary form</display-name>
+		<servlet-name>ShowEditUgSummaryFormServlet</servlet-name>
+		<servlet-class>servlet.user.ShowEditUgSummaryFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowEditUgSummaryFormServlet</servlet-name>
+		<url-pattern>/ShowEditUgSummaryFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show view user group joined form -->
+	<servlet>
+		<description>Show view user group joined form</description>
+		<display-name>Show view user group joined form</display-name>
+		<servlet-name>ShowViewUgJoinedFormServlet</servlet-name>
+		<servlet-class>servlet.user.ShowViewUgJoinedFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowViewUgJoinedFormServlet</servlet-name>
+		<url-pattern>/ShowViewUgJoinedFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Edit password -->
+	<servlet>
+		<description>Edit password</description>
+		<display-name>Edit password</display-name>
+		<servlet-name>EditPwServlet</servlet-name>
+		<servlet-class>servlet.user.EditPwServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditPwServlet</servlet-name>
+		<url-pattern>/EditPwServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Edit user group summary -->
+	<servlet>
+		<description>Edit user group summary</description>
+		<display-name>Edit user group summary</display-name>
+		<servlet-name>EditUgSummaryServlet</servlet-name>
+		<servlet-class>servlet.user.EditUgSummaryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditUgSummaryServlet</servlet-name>
+		<url-pattern>/EditUgSummaryServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show add user to ug form -->
+	<servlet>
+		<description>Show add user to ug form</description>
+		<display-name>Show add user to ug form</display-name>
+		<servlet-name>ShowAddUserToUgFormServlet</servlet-name>
+		<servlet-class>servlet.user.ShowAddUserToUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddUserToUgFormServlet</servlet-name>
+		<url-pattern>/ShowAddUserToUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show delete user from ug form -->
+	<servlet>
+		<description>Show delete user from ug form</description>
+		<display-name>Show delete user from ug form</display-name>
+		<servlet-name>ShowDelUserFromUgFormServlet</servlet-name>
+		<servlet-class>servlet.user.ShowDelUserFromUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDelUserFromUgFormServlet</servlet-name>
+		<url-pattern>/ShowDelUserFromUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Add user to user group -->
+	<servlet>
+		<description>Add user to user group</description>
+		<display-name>Add user to user group</display-name>
+		<servlet-name>AddUserToUgServlet</servlet-name>
+		<servlet-class>servlet.user.AddUserToUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddUserToUgServlet</servlet-name>
+		<url-pattern>/AddUserToUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete user from user group -->
+	<servlet>
+		<description>Delete user from user group</description>
+		<display-name>Delete user from user group</display-name>
+		<servlet-name>DelUserFromUgServlet</servlet-name>
+		<servlet-class>servlet.user.DelUserFromUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelUserFromUgServlet</servlet-name>
+		<url-pattern>/DelUserFromUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Quit user group -->
+	<servlet>
+		<description>Quit user group</description>
+		<display-name>Quit user group</display-name>
+		<servlet-name>QuitUgServlet</servlet-name>
+		<servlet-class>servlet.user.QuitUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuitUgServlet</servlet-name>
+		<url-pattern>/QuitUgServlet</url-pattern>
+	</servlet-mapping>
+		
+<!-- *********************End UserPage********************* -->
+
+<!-- ********************Begin Website******************** -->
+
+	<!-- Edit Website Keywords -->
+	<servlet>
+		<description>Edit website keywords</description>
+		<display-name>Edit website keywords</display-name>
+		<servlet-name>EditWbstKwsServlet</servlet-name>
+		<servlet-class>servlet.website.EditWbstKwsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditWbstKwsServlet</servlet-name>
+		<url-pattern>/EditWbstKwsServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Get user groups to share website -->
+	<servlet>
+		<description>Show share website to ug form</description>
+		<display-name>Show share website to ug form</display-name>
+		<servlet-name>ShowShareWbstToUgFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowShareWbstToUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowShareWbstToUgFormServlet</servlet-name>
+		<url-pattern>/ShowShareWbstToUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Share website to user group -->
+	<servlet>
+		<description>Share website to user group</description>
+		<display-name>Share website to user group</display-name>
+		<servlet-name>ShareWbstToUgServlet</servlet-name>
+		<servlet-class>servlet.website.ShareWbstToUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShareWbstToUgServlet</servlet-name>
+		<url-pattern>/ShareWbstToUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Rename website -->
+	<servlet>
+		<description>Rename website</description>
+		<display-name>Rename website</display-name>
+		<servlet-name>RenameWbstServlet</servlet-name>
+		<servlet-class>servlet.website.RenameWbstServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RenameWbstServlet</servlet-name>
+		<url-pattern>/RenameWbstServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- Follow website -->
+	<servlet>
+		<description>Follow website</description>
+		<display-name>Follow website</display-name>
+		<servlet-name>FollowWbstServlet</servlet-name>
+		<servlet-class>servlet.website.FollowWbstServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FollowWbstServlet</servlet-name>
+		<url-pattern>/FollowWbstServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Add website simply -->
+	<servlet>
+		<description>Add website simply</description>
+		<display-name>Add website simply</display-name>
+		<servlet-name>AddWbstSimplyServlet</servlet-name>
+		<servlet-class>servlet.website.AddWbstSimplyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddWbstSimplyServlet</servlet-name>
+		<url-pattern>/AddWbstSimplyServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Website News -->
+	<servlet>
+		<description>Show Website News</description>
+		<display-name>Show Website News</display-name>
+		<servlet-name>ShowWbstNewsServlet</servlet-name>
+		<servlet-class>servlet.website.ShowWbstNewsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowWbstNewsServlet</servlet-name>
+		<url-pattern>/ShowWbstNewsServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Add website with config -->
+	<servlet>
+		<description>Add website with config</description>
+		<display-name>Add website with config</display-name>
+		<servlet-name>AddWbstWithCfgServlet</servlet-name>
+		<servlet-class>servlet.website.AddWbstWithCfgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddWbstWithCfgServlet</servlet-name>
+		<url-pattern>/AddWbstWithCfgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Update website config servlet -->
+	<servlet>
+		<description>Edit website config servlet</description>
+		<display-name>Edit website config servlet</display-name>
+		<servlet-name>EditWbstCfgServlet</servlet-name>
+		<servlet-class>servlet.website.EditWbstCfgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditWbstCfgServlet</servlet-name>
+		<url-pattern>/EditWbstCfgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Unshow website-news -->
+	<servlet>
+		<description>Unshow website-news</description>
+		<display-name>Unshow website-news</display-name>
+		<servlet-name>UnshowWbstNewsServlet</servlet-name>
+		<servlet-class>servlet.website.UnshowWbstNewsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UnshowWbstNewsServlet</servlet-name>
+		<url-pattern>/UnshowWbstNewsServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Search website-news -->
+	<servlet>
+		<description>Search website-news</description>
+		<display-name>Search website-news</display-name>
+		<servlet-name>SearchWbstNewsServlet</servlet-name>
+		<servlet-class>servlet.website.SearchWbstNewsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchWbstNewsServlet</servlet-name>
+		<url-pattern>/SearchWbstNewsServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show edit website config form -->
+	<servlet>
+		<description>Show edit website config form</description>
+		<display-name>Show edit website config form</display-name>
+		<servlet-name>ShowEditWbstCfgFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowEditWbstCfgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowEditWbstCfgFormServlet</servlet-name>
+		<url-pattern>/ShowEditWbstCfgFormServlet</url-pattern>
+	</servlet-mapping>
+  
+  	<!-- Show rename website form -->
+	<servlet>
+		<description>Show rename website form</description>
+		<display-name>Show rename website form</display-name>
+		<servlet-name>ShowRenameWbstFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowRenameWbstFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowRenameWbstFormServlet</servlet-name>
+		<url-pattern>/ShowRenameWbstFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show edit website keyword -->
+	<servlet>
+		<description>Show edit website keyword</description>
+		<display-name>Show edit website keyword</display-name>
+		<servlet-name>ShowEditWbstKwFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowEditWbstKwFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowEditWbstKwFormServlet</servlet-name>
+		<url-pattern>/ShowEditWbstKwFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show edit website update method form -->
+	<servlet>
+		<description>Show edit website update method form</description>
+		<display-name>Show edit website update method form</display-name>
+		<servlet-name>ShowEditWbstUpdateMethodFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowEditWbstUpdateMethodFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowEditWbstUpdateMethodFormServlet</servlet-name>
+		<url-pattern>/ShowEditWbstUpdateMethodFormServlet</url-pattern>
+	</servlet-mapping>	
+	
+	<!-- Show delete website form -->
+	<servlet>
+		<description>Show delete website form</description>
+		<display-name>Show delete website form</display-name>
+		<servlet-name>ShowDelWbstFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowDelWbstFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDelWbstFormServlet</servlet-name>
+		<url-pattern>/ShowDelWbstFormServlet</url-pattern>
+	</servlet-mapping> 
+	
+	<!-- Show delete website from user group form -->
+	<servlet>
+		<description>Show delete website from user group form</description>
+		<display-name>Show delete website from user group form</display-name>
+		<servlet-name>ShowDelWbstFromUgFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowDelWbstFromUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDelWbstFromUgFormServlet</servlet-name>
+		<url-pattern>/ShowDelWbstFromUgFormServlet</url-pattern>
+	</servlet-mapping>  
+	
+	<!-- Show add website to user group form -->
+	<servlet>
+		<description>Show add website to user group form</description>
+		<display-name>Show add website to user group form</display-name>
+		<servlet-name>ShowAddWbstToUgFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowAddWbstToUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddWbstToUgFormServlet</servlet-name>
+		<url-pattern>/ShowAddWbstToUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete website -->
+	<servlet>
+		<description>Delete website</description>
+		<display-name>Delete website</display-name>
+		<servlet-name>DelWbstServlet</servlet-name>
+		<servlet-class>servlet.website.DelWbstServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelWbstServlet</servlet-name>
+		<url-pattern>/DelWbstServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Edit website update method -->
+	<servlet>
+		<description>Edit website update method</description>
+		<display-name>Edit website update method</display-name>
+		<servlet-name>EditWbstUpdateMethodServlet</servlet-name>
+		<servlet-class>servlet.website.EditWbstUpdateMethodServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditWbstUpdateMethodServlet</servlet-name>
+		<url-pattern>/EditWbstUpdateMethodServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show follow website from user group form -->
+	<servlet>
+		<description>Show follow website from user group form</description>
+		<display-name>Show follow website from user group form</display-name>
+		<servlet-name>ShowFollowWbstFromUgFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowFollowWbstFromUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowFollowWbstFromUgFormServlet</servlet-name>
+		<url-pattern>/ShowFollowWbstFromUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Follow website from user group -->
+	<servlet>
+		<description>Follow website from user group</description>
+		<display-name>Follow website from user group</display-name>
+		<servlet-name>FollowWbstFromUgServlet</servlet-name>
+		<servlet-class>servlet.website.FollowWbstFromUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FollowWbstFromUgServlet</servlet-name>
+		<url-pattern>/FollowWbstFromUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show user group to follow website -->
+	<servlet>
+		<description>Show list user group to follow website</description>
+		<display-name>Show list user group to follow website</display-name>
+		<servlet-name>ShowListUgToFollowWbstFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowListUgToFollowWbstFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowListUgToFollowWbstFormServlet</servlet-name>
+		<url-pattern>/ShowListUgToFollowWbstFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show list website to edit form -->
+	<servlet>
+		<description>Show list website to edit form</description>
+		<display-name>Show list website to edit form</display-name>
+		<servlet-name>ShowListWbstToEditFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowListWbstToEditFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowListWbstToEditFormServlet</servlet-name>
+		<url-pattern>/ShowListWbstToEditFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show list website to edit keyword form -->
+	<servlet>
+		<description>Show list website to edit keyword form</description>
+		<display-name>Show list website to edit keyword form</display-name>
+		<servlet-name>ShowListWbstToEditKwFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowListWbstToEditKwFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowListWbstToEditKwFormServlet</servlet-name>
+		<url-pattern>/ShowListWbstToEditKwFormServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- Show list website to rename form -->
+	<servlet>
+		<description>Show list website to rename form</description>
+		<display-name>Show list website to rename form</display-name>
+		<servlet-name>ShowListWbstToRenameFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowListWbstToRenameFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowListWbstToRenameFormServlet</servlet-name>
+		<url-pattern>/ShowListWbstToRenameFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show list website to share form -->
+	<servlet>
+		<description>Show list website to share form</description>
+		<display-name>Show list website to share form</display-name>
+		<servlet-name>ShowListWbstToShareFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowListWbstToShareFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowListWbstToShareFormServlet</servlet-name>
+		<url-pattern>/ShowListWbstToShareFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show list website to delete form -->
+	<servlet>
+		<description>Show list website to delete form</description>
+		<display-name>Show list website to delete form</display-name>
+		<servlet-name>ShowListWbstToDelFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowListWbstToDelFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowListWbstToDelFormServlet</servlet-name>
+		<url-pattern>/ShowListWbstToDelFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Update website news -->
+	<servlet>
+		<description>Update website news</description>
+		<display-name>Update website news</display-name>
+		<servlet-name>UpdateWbstNewsServlet</servlet-name>
+		<servlet-class>servlet.website.UpdateWbstNewsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateWbstNewsServlet</servlet-name>
+		<url-pattern>/UpdateWbstNewsServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete website from user group -->
+	<servlet>
+		<description>Delete website from user group</description>
+		<display-name>Delete website from user group</display-name>
+		<servlet-name>DelWbstFromUgServlet</servlet-name>
+		<servlet-class>servlet.website.DelWbstFromUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelWbstFromUgServlet</servlet-name>
+		<url-pattern>/DelWbstFromUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show unfollow wbst form -->
+	<servlet>
+		<description>Show unfollow wbst form</description>
+		<display-name>Show unfollow wbst form</display-name>
+		<servlet-name>ShowUnfollowWbstFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowUnfollowWbstFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowUnfollowWbstFormServlet</servlet-name>
+		<url-pattern>/ShowUnfollowWbstFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Unfollow website -->
+	<servlet>
+		<description>Unfollow website</description>
+		<display-name>Unfollow website</display-name>
+		<servlet-name>UnfollowWbstServlet</servlet-name>
+		<servlet-class>servlet.website.UnfollowWbstServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UnfollowWbstServlet</servlet-name>
+		<url-pattern>/UnfollowWbstServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show unshare website from user group form -->
+	<servlet>
+		<description>Show unshare website from user group form</description>
+		<display-name>Show unshare website from user group form</display-name>
+		<servlet-name>ShowUnshareWbstFromUgFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowUnshareWbstFromUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowUnshareWbstFromUgFormServlet</servlet-name>
+		<url-pattern>/ShowUnshareWbstFromUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Unshare website from user group -->
+	<servlet>
+		<description>Unshare website from user group</description>
+		<display-name>Unshare website from user group</display-name>
+		<servlet-name>UnshareWbstFromUgServlet</servlet-name>
+		<servlet-class>servlet.website.UnshareWbstFromUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UnshareWbstFromUgServlet</servlet-name>
+		<url-pattern>/UnshareWbstFromUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show website Infomation -->
+	<servlet>
+		<description>Show website Infomation</description>
+		<display-name>Show website Infomation</display-name>
+		<servlet-name>ShowInfoServlet</servlet-name>
+		<servlet-class>servlet.website.ShowInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowInfoServlet</servlet-name>
+		<url-pattern>/ShowInfoServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Enable Single Wbst VPN Form -->
+	<servlet>
+		<description>Show Enable Single Wbst VPN Form</description>
+		<display-name>Show Enable Single Wbst VPN Form</display-name>
+		<servlet-name>ShowEnableSingleWbstVPNFormServlet</servlet-name>
+		<servlet-class>servlet.website.ShowEnableSingleWbstVPNFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowEnableSingleWbstVPNFormServlet</servlet-name>
+		<url-pattern>/ShowEnableSingleWbstVPNFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Enable Single Wbst VPN -->
+	<servlet>
+		<description>Enable Single Wbst VPN</description>
+		<display-name>Enable Single Wbst VPN</display-name>
+		<servlet-name>EnableSingleWbstVPNServlet</servlet-name>
+		<servlet-class>servlet.website.EnableSingleWbstVPNServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EnableSingleWbstVPNServlet</servlet-name>
+		<url-pattern>/EnableSingleWbstVPNServlet</url-pattern>
+	</servlet-mapping>
+
+<!-- *********************End Website********************* -->
+
+<!-- ********************Begin Subject******************** -->
+
+	<!-- Get sub-subject -->
+	<servlet>
+		<description>Show sub-subject</description>
+		<display-name>Show sub-subject</display-name>
+		<servlet-name>ShowSubSbjtServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowSubSbjtServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowSubSbjtServlet</servlet-name>
+		<url-pattern>/ShowSubSbjtServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show subject news -->
+	<servlet>
+		<description>Show subject news</description>
+		<display-name>Show subject news</display-name>
+		<servlet-name>ShowSbjtNewsServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowSbjtNewsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowSbjtNewsServlet</servlet-name>
+		<url-pattern>/ShowSbjtNewsServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Unshow subject news -->
+	<servlet>
+		<description>Unshow subject news</description>
+		<display-name>Unshow subject news</display-name>
+		<servlet-name>UnshowSbjtNewsServlet</servlet-name>
+		<servlet-class>servlet.subject.UnshowSbjtNewsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UnshowSbjtNewsServlet</servlet-name>
+		<url-pattern>/UnshowSbjtNewsServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show add subject form -->
+	<servlet>
+		<description>Show add subject form</description>
+		<display-name>Show add subject form</display-name>
+		<servlet-name>ShowAddSbjtFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowAddSbjtFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddSbjtFormServlet</servlet-name>
+		<url-pattern>/ShowAddSbjtFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show add subject category for -->
+	<servlet>
+		<description>Show add subject category form</description>
+		<display-name>Show add subject category form</display-name>
+		<servlet-name>ShowAddSbjtCtgyFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowAddSbjtCtgyFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddSbjtCtgyFormServlet</servlet-name>
+		<url-pattern>/ShowAddSbjtCtgyFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show add subject item form -->
+	<servlet>
+		<description>Show add subject item form</description>
+		<display-name>Show add subject item form</display-name>
+		<servlet-name>ShowAddSbjtItemFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowAddSbjtItemFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddSbjtItemFormServlet</servlet-name>
+		<url-pattern>/ShowAddSbjtItemFormServlet</url-pattern>
+	</servlet-mapping>  
+	
+	<!-- Show delete subject form -->
+	<servlet>
+		<description>Show delete subject form</description>
+		<display-name>Show delete subject form</display-name>
+		<servlet-name>ShowDelSbjtFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowDelSbjtFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDelSbjtFormServlet</servlet-name>
+		<url-pattern>/ShowDelSbjtFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show delete subject category form -->
+	<servlet>
+		<description>Show delete subject category form</description>
+		<display-name>Show delete subject category form</display-name>
+		<servlet-name>ShowDelSbjtCtgyFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowDelSbjtCtgyFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDelSbjtCtgyFormServlet</servlet-name>
+		<url-pattern>/ShowDelSbjtCtgyFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show delete subject item form -->
+	<servlet>
+		<description>Show delete subject item form</description>
+		<display-name>Show delete subject item form</display-name>
+		<servlet-name>ShowDelSbjtItemFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowDelSbjtItemFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDelSbjtItemFormServlet</servlet-name>
+		<url-pattern>/ShowDelSbjtItemFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show edit subject keyword form -->
+	<servlet>
+		<description>Show edit subject keyword form</description>
+		<display-name>Show edit subject keyword form</display-name>
+		<servlet-name>ShowEditSbjtKwFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowEditSbjtKwFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowEditSbjtKwFormServlet</servlet-name>
+		<url-pattern>/ShowEditSbjtKwFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show rename subject category form -->
+	<servlet>
+		<description>Show rename subject category form</description>
+		<display-name>Show rename subject category form</display-name>
+		<servlet-name>ShowRenameSbjtCtgyFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowRenameSbjtCtgyFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowRenameSbjtCtgyFormServlet</servlet-name>
+		<url-pattern>/ShowRenameSbjtCtgyFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Rename subject category -->
+	<servlet>
+		<description>Rename subject category</description>
+		<display-name>Rename subject category</display-name>
+		<servlet-name>RenameSbjtCtgyServlet</servlet-name>
+		<servlet-class>servlet.subject.RenameSbjtCtgyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RenameSbjtCtgyServlet</servlet-name>
+		<url-pattern>/RenameSbjtCtgyServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Add subject category -->
+	<servlet>
+		<description>Add subject category</description>
+		<display-name>Add subject category</display-name>
+		<servlet-name>AddSbjtCtgyServlet</servlet-name>
+		<servlet-class>servlet.subject.AddSbjtCtgyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddSbjtCtgyServlet</servlet-name>
+		<url-pattern>/AddSbjtCtgyServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Edit subject keyword -->
+	<servlet>
+		<description>Edit subject keyword</description>
+		<display-name>Edit subject keyword</display-name>
+		<servlet-name>EditSbjtKwServlet</servlet-name>
+		<servlet-class>servlet.subject.EditSbjtKwServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditSbjtKwServlet</servlet-name>
+		<url-pattern>/EditSbjtKwServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Add subject item -->
+	<servlet>
+		<description>Add subject item</description>
+		<display-name>Add subject item</display-name>
+		<servlet-name>AddSbjtItemServlet</servlet-name>
+		<servlet-class>servlet.subject.AddSbjtItemServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddSbjtItemServlet</servlet-name>
+		<url-pattern>/AddSbjtItemServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Add subject -->
+	<servlet>
+		<description>Add subject</description>
+		<display-name>Add subject</display-name>
+		<servlet-name>AddSbjtServlet</servlet-name>
+		<servlet-class>servlet.subject.AddSbjtServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddSbjtServlet</servlet-name>
+		<url-pattern>/AddSbjtServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete subject -->
+	<servlet>
+		<description>Delete subject</description>
+		<display-name>Delete subject</display-name>
+		<servlet-name>DelSbjtServlet</servlet-name>
+		<servlet-class>servlet.subject.DelSbjtServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelSbjtServlet</servlet-name>
+		<url-pattern>/DelSbjtServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show share sbjt to user group form -->
+	<servlet>
+		<description>Show share sbjt to user group form</description>
+		<display-name>Show share sbjt to user group form</display-name>
+		<servlet-name>ShowShareSbjtToUgFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowShareSbjtToUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowShareSbjtToUgFormServlet</servlet-name>
+		<url-pattern>/ShowShareSbjtToUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Share subject to user group -->
+	<servlet>
+		<description>Share subject to user group</description>
+		<display-name>Share subject to user group</display-name>
+		<servlet-name>ShareSbjtToUgServlet</servlet-name>
+		<servlet-class>servlet.subject.ShareSbjtToUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShareSbjtToUgServlet</servlet-name>
+		<url-pattern>/ShareSbjtToUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show add subject to user group form -->
+	<servlet>
+		<description>Show add subject to user group form</description>
+		<display-name>Show add subject to user group form</display-name>
+		<servlet-name>ShowAddSbjtToUgFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowAddSbjtToUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddSbjtToUgFormServlet</servlet-name>
+		<url-pattern>/ShowAddSbjtToUgFormServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- Show follow subject from user group form -->
+	<servlet>
+		<description>Show follow subject from user group form</description>
+		<display-name>Show follow subject from user group form</display-name>
+		<servlet-name>ShowFollowSbjtFromUgFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowFollowSbjtFromUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowFollowSbjtFromUgFormServlet</servlet-name>
+		<url-pattern>/ShowFollowSbjtFromUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Follow subject from user group -->
+	<servlet>
+		<description>Follow subject from user group</description>
+		<display-name>Follow subject from user group</display-name>
+		<servlet-name>FollowSbjtFromUgServlet</servlet-name>
+		<servlet-class>servlet.subject.FollowSbjtFromUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FollowSbjtFromUgServlet</servlet-name>
+		<url-pattern>/FollowSbjtFromUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show unfollow sbjt form -->
+	<servlet>
+		<description>Show unfollow sbjt form</description>
+		<display-name>Show unfollow sbjt form</display-name>
+		<servlet-name>ShowUnfollowSbjtFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowUnfollowSbjtFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowUnfollowSbjtFormServlet</servlet-name>
+		<url-pattern>/ShowUnfollowSbjtFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Unfollow subject -->
+	<servlet>
+		<description>Unfollow subject</description>
+		<display-name>Unfollow subject</display-name>
+		<servlet-name>UnfollowSbjtServlet</servlet-name>
+		<servlet-class>servlet.subject.UnfollowSbjtServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UnfollowSbjtServlet</servlet-name>
+		<url-pattern>/UnfollowSbjtServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show delete subject from user group form -->
+	<servlet>
+		<description>Show delete subject from user group form</description>
+		<display-name>Show delete subject from user group form</display-name>
+		<servlet-name>ShowDelSbjtFromUgFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowDelSbjtFromUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDelSbjtFromUgFormServlet</servlet-name>
+		<url-pattern>/ShowDelSbjtFromUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete subject from user group -->
+	<servlet>
+		<description>Delete subject from user group</description>
+		<display-name>Delete subject from user group</display-name>
+		<servlet-name>DelSbjtFromUgServlet</servlet-name>
+		<servlet-class>servlet.subject.DelSbjtFromUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelSbjtFromUgServlet</servlet-name>
+		<url-pattern>/DelSbjtFromUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show unshare subject from user group form -->
+	<servlet>
+		<description>Show unshare subject from user group form</description>
+		<display-name>Show unshare subject from user group form</display-name>
+		<servlet-name>ShowUnshareSbjtFromUgFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowUnshareSbjtFromUgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowUnshareSbjtFromUgFormServlet</servlet-name>
+		<url-pattern>/ShowUnshareSbjtFromUgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Unshare sbjt from user group -->
+	<servlet>
+		<description>Unshare sbjt from user group</description>
+		<display-name>Unshare sbjt from user group</display-name>
+		<servlet-name>UnshareSbjtFromUgServlet</servlet-name>
+		<servlet-class>servlet.subject.UnshareSbjtFromUgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UnshareSbjtFromUgServlet</servlet-name>
+		<url-pattern>/UnshareSbjtFromUgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Search subject news -->
+	<servlet>
+		<description>Search subject news</description>
+		<display-name>Search subject news</display-name>
+		<servlet-name>SearchSbjtNewsServlet</servlet-name>
+		<servlet-class>servlet.subject.SearchSbjtNewsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchSbjtNewsServlet</servlet-name>
+		<url-pattern>/SearchSbjtNewsServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Update subject news -->
+	<servlet>
+		<description>Update subject news</description>
+		<display-name>Update subject news</display-name>
+		<servlet-name>UpdateSbjtNewsServlet</servlet-name>
+		<servlet-class>servlet.subject.UpdateSbjtNewsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateSbjtNewsServlet</servlet-name>
+		<url-pattern>/UpdateSbjtNewsServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show list subject to delete form -->
+	<servlet>
+		<description>Show list subject to delete form</description>
+		<display-name>Show list subject to delete form</display-name>
+		<servlet-name>ShowListSbjtToDelFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowListSbjtToDelFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowListSbjtToDelFormServlet</servlet-name>
+		<url-pattern>/ShowListSbjtToDelFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show list subject to share form -->
+	<servlet>
+		<description>Show list subject to share form</description>
+		<display-name>Show list subject to share form</display-name>
+		<servlet-name>ShowListSbjtToShareFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowListSbjtToShareFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowListSbjtToShareFormServlet</servlet-name>
+		<url-pattern>/ShowListSbjtToShareFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show list user group to follow subject form -->
+	<servlet>
+		<description>Show list user group to follow subject form</description>
+		<display-name>Show list user group to follow subject form</display-name>
+		<servlet-name>ShowListUgToFollowSbjtFormServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowListUgToFollowSbjtFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowListUgToFollowSbjtFormServlet</servlet-name>
+		<url-pattern>/ShowListUgToFollowSbjtFormServlet</url-pattern>
+	</servlet-mapping>	
+	
+	<!-- Show subject Infomation -->
+	<servlet>
+		<description>Show subject Infomation</description>
+		<display-name>Show subject Infomation</display-name>
+		<servlet-name>ShowSbjtInfoServlet</servlet-name>
+		<servlet-class>servlet.subject.ShowSbjtInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowSbjtInfoServlet</servlet-name>
+		<url-pattern>/ShowSbjtInfoServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>showMgntUserOfUgForm1</servlet-name>
+    <servlet-class>servlet.user.showMgntUserOfUgForm1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>showMgntUserOfUgForm1</servlet-name>
+    <url-pattern>/servlet/showMgntUserOfUgForm1</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowMgntUserOfUgFormDelServlet</servlet-name>
+    <servlet-class>servlet.user.ShowMgntUserOfUgFormDelServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowMgntUserOfUgFormDelServlet</servlet-name>
+    <url-pattern>/servlet/ShowMgntUserOfUgFormDelServlet</url-pattern>
+  </servlet-mapping>  
+  
+  
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowMgntUserOfUgFormDel</servlet-name>
+    <servlet-class>servlet.user.ShowMgntUserOfUgFormDel</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowMgntUserOfUgFormDel</servlet-name>
+    <url-pattern>/ShowMgntUserOfUgFormDel</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <!-- Update single subject -->
+	<servlet>
+		<description>Update single subject</description>
+		<display-name>Update single subject</display-name>
+		<servlet-name>UpdateSingleSbjtServlet</servlet-name>
+		<servlet-class>servlet.subject.UpdateSingleSbjtServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateSingleSbjtServlet</servlet-name>
+		<url-pattern>/UpdateSingleSbjtServlet</url-pattern>
+	</servlet-mapping>
+	
+<!-- *********************End Subject********************* -->
+
+<!-- *********************Begin Question********************* -->
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>QuestionServlet</servlet-name>
+		<servlet-class>servlet.website.QuestionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuestionServlet</servlet-name>
+		<url-pattern>/QuestionServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ShowQuestionTableServlet</servlet-name>
+		<servlet-class>servlet.supermanager.ShowQuestionTableServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowQuestionTableServlet</servlet-name>
+		<url-pattern>/ShowQuestionTableServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ShowQuestionDescriptionServlet</servlet-name>
+		<servlet-class>servlet.supermanager.ShowQuestionDescriptionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowQuestionDescriptionServlet</servlet-name>
+		<url-pattern>/ShowQuestionDescriptionServlet</url-pattern>
+	</servlet-mapping>  
+	
+	
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>AddRowServlet</servlet-name>
+		<servlet-class>servlet.supermanager.AddRowServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddRowServlet</servlet-name>
+		<url-pattern>/AddRowServlet</url-pattern>
+	</servlet-mapping>  
+	
+	
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>SubmitAnswerServlet</servlet-name>
+		<servlet-class>servlet.supermanager.SubmitAnswerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SubmitAnswerServlet</servlet-name>
+		<url-pattern>/SubmitAnswerServlet</url-pattern>
+	</servlet-mapping>  
+	
+	
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ShowAnswerTableServlet</servlet-name>
+		<servlet-class>servlet.website.ShowAnswerTableServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAnswerTableServlet</servlet-name>
+		<url-pattern>/ShowAnswerTableServlet</url-pattern>
+	</servlet-mapping>  
+	
+	
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ShowAnswerDescriptionServlet</servlet-name>
+		<servlet-class>servlet.website.ShowAnswerDescriptionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAnswerDescriptionServlet</servlet-name>
+		<url-pattern>/ShowAnswerDescriptionServlet</url-pattern>
+	</servlet-mapping>  
+	
+	
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>AddWRowServlet</servlet-name>
+		<servlet-class>servlet.website.AddWRowServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddWRowServlet</servlet-name>
+		<url-pattern>/AddWRowServlet</url-pattern>
+	</servlet-mapping> 
+	
+	
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>SubmitWAnswerServlet</servlet-name>
+		<servlet-class>servlet.website.SubmitWAnswerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SubmitWAnswerServlet</servlet-name>
+		<url-pattern>/SubmitWAnswerServlet</url-pattern>
+	</servlet-mapping>
+
+<!-- *********************End Question********************* -->
+
+<!-- *********************Begin Data IO********************* -->
+
+	<!-- Export user related data -->
+	<servlet>
+		<description>Export user related data</description>
+		<display-name>Export user related data</display-name>
+		<servlet-name>ExportUserRltdDataServlet</servlet-name>
+		<servlet-class>servlet.dataio.ExportUserRltdDataServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExportUserRltdDataServlet</servlet-name>
+		<url-pattern>/ExportUserRltdDataServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Import user related data -->
+	<servlet>
+		<description>Import user related data</description>
+		<display-name>Import user related data</display-name>
+		<servlet-name>ImportUserRltdDataServlet</servlet-name>
+		<servlet-class>servlet.dataio.ImportUserRltdDataServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ImportUserRltdDataServlet</servlet-name>
+		<url-pattern>/ImportUserRltdDataServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Export website related data -->
+	<servlet>
+		<description>Export website related data</description>
+		<display-name>Export website related data</display-name>
+		<servlet-name>ExportWbstRltdDataServlet</servlet-name>
+		<servlet-class>servlet.dataio.ExportWbstRltdDataServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExportWbstRltdDataServlet</servlet-name>
+		<url-pattern>/ExportWbstRltdDataServlet</url-pattern>
+	</servlet-mapping>  
+	
+	<!-- Import website related data -->
+	<servlet>
+		<description>Import website related data</description>
+		<display-name>Import website related data</display-name>
+		<servlet-name>ImportWbstRltdDataServlet</servlet-name>
+		<servlet-class>servlet.dataio.ImportWbstRltdDataServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ImportWbstRltdDataServlet</servlet-name>
+		<url-pattern>/ImportWbstRltdDataServlet</url-pattern>
+	</servlet-mapping>  
+	
+	<!-- Export subject news data -->
+	<servlet>
+		<description>Export subject news data</description>
+		<display-name>Export subject news data</display-name>
+		<servlet-name>ExportSbjtNewsDataServlet</servlet-name>
+		<servlet-class>servlet.dataio.ExportSbjtNewsDataServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExportSbjtNewsDataServlet</servlet-name>
+		<url-pattern>/ExportSbjtNewsDataServlet</url-pattern>
+	</servlet-mapping>  
+	
+	<!-- Import subject news data -->
+	<servlet>
+		<description>Import subject news data</description>
+		<display-name>Import subject news data</display-name>
+		<servlet-name>ImportSbjtNewsDataServlet</servlet-name>
+		<servlet-class>servlet.dataio.ImportSbjtNewsDataServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ImportSbjtNewsDataServlet</servlet-name>
+		<url-pattern>/ImportSbjtNewsDataServlet</url-pattern>
+	</servlet-mapping>  
+	
+	<!-- Export subject related data -->
+	<servlet>
+		<description>Export subject related data</description>
+		<display-name>Export subject related data</display-name>
+		<servlet-name>ExportSbjtRltdDataServlet</servlet-name>
+		<servlet-class>servlet.dataio.ExportSbjtRltdDataServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExportSbjtRltdDataServlet</servlet-name>
+		<url-pattern>/ExportSbjtRltdDataServlet</url-pattern>
+	</servlet-mapping>  
+	
+	<!-- Import subject related data -->
+	<servlet>
+		<description>Import subject related data</description>
+		<display-name>Import subject related data</display-name>
+		<servlet-name>ImportSbjtRltdDataServlet</servlet-name>
+		<servlet-class>servlet.dataio.ImportSbjtRltdDataServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ImportSbjtRltdDataServlet</servlet-name>
+		<url-pattern>/ImportSbjtRltdDataServlet</url-pattern>
+	</servlet-mapping>
+	
+<!-- *********************End Data IO********************* -->
+	
+	<!-- Add organization -->
+	<servlet>
+		<description>Add organization</description>
+		<display-name>Add organization</display-name>
+		<servlet-name>AddOrgServlet</servlet-name>
+		<servlet-class>servlet.superadmin.AddOrgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddOrgServlet</servlet-name>
+		<url-pattern>/AddOrgServlet</url-pattern>
+	</servlet-mapping>  
+	
+	<!-- Show management organization form -->
+	<servlet>
+		<description>Show management organization form</description>
+		<display-name>Show management organization form</display-name>
+		<servlet-name>ShowMgntOrgFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowMgntOrgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowMgntOrgFormServlet</servlet-name>
+		<url-pattern>/ShowMgntOrgFormServlet</url-pattern>
+	</servlet-mapping>  
+
+	<!-- Show assign authority to org form -->
+	<servlet>
+		<description>Show add authority to org form</description>
+		<display-name>Show add authority to org form</display-name>
+		<servlet-name>ShowAddAthyToOrgFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowAddAthyToOrgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddAthyToOrgFormServlet</servlet-name>
+		<url-pattern>/ShowAddAthyToOrgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show delete authority from org form -->
+	<servlet>
+		<description>Show delete authority from org form</description>
+		<display-name>Show delete authority from org form</display-name>
+		<servlet-name>ShowDelAthyFromOrgFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowDelAthyFromOrgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDelAthyFromOrgFormServlet</servlet-name>
+		<url-pattern>/ShowDelAthyFromOrgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Organization List Form -->
+	<servlet>
+		<description>Show Organization List Form</description>
+		<display-name>Show Organization List Form</display-name>
+		<servlet-name>ShowOrgListFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowOrgListFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowOrgListFormServlet</servlet-name>
+		<url-pattern>/ShowOrgListFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Search Engine List Form -->
+	<servlet>
+		<description>Show Search Engine List Form</description>
+		<display-name>Show Search Engine List Form</display-name>
+		<servlet-name>ShowSeListFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowSeListFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowSeListFormServlet</servlet-name>
+		<url-pattern>/ShowSeListFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Enable Search Engine Form -->
+	<servlet>
+		<description>Show Enable Search Engine Form</description>
+		<display-name>Show Enable Search Engine Form</display-name>
+		<servlet-name>ShowEnableSeFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowEnableSeFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowEnableSeFormServlet</servlet-name>
+		<url-pattern>/ShowEnableSeFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Enable Search Engine -->
+	<servlet>
+		<description>Enable Search Engine</description>
+		<display-name>Enable Search Engine</display-name>
+		<servlet-name>EnableSeServlet</servlet-name>
+		<servlet-class>servlet.superadmin.EnableSeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EnableSeServlet</servlet-name>
+		<url-pattern>/EnableSeServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Disable Search Engine Form -->
+	<servlet>
+		<description>Show Disable Search Engine Form</description>
+		<display-name>Show Disable Search Engine Form</display-name>
+		<servlet-name>ShowDisableSeFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowDisableSeFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowDisableSeFormServlet</servlet-name>
+		<url-pattern>/ShowDisableSeFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Disable Search Engine -->
+	<servlet>
+		<description>Disable Search Engine</description>
+		<display-name>Disable Search Engine</display-name>
+		<servlet-name>DisableSeServlet</servlet-name>
+		<servlet-class>servlet.superadmin.DisableSeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DisableSeServlet</servlet-name>
+		<url-pattern>/DisableSeServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Add Search Engine Form -->
+	<servlet>
+		<description>Show Add Search Engine Form</description>
+		<display-name>Show Add Search Engine Form</display-name>
+		<servlet-name>ShowAddSeFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowAddSeFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddSeFormServlet</servlet-name>
+		<url-pattern>/ShowAddSeFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Add Search Engine -->
+	<servlet>
+		<description>Add Search Engine</description>
+		<display-name>Add Search Engine</display-name>
+		<servlet-name>AddSeServlet</servlet-name>
+		<servlet-class>servlet.superadmin.AddSeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddSeServlet</servlet-name>
+		<url-pattern>/AddSeServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show View User Of Organization Form -->
+	<servlet>
+		<description>Show View User Of Organization Form</description>
+		<display-name>Show View User Of Organization Form</display-name>
+		<servlet-name>ShowViewUserOfOrgFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowViewUserOfOrgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowViewUserOfOrgFormServlet</servlet-name>
+		<url-pattern>/ShowViewUserOfOrgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show View User Group Of Organization Form -->
+	<servlet>
+		<description>Show View User Group Of Organization Form</description>
+		<display-name>Show View User Group Of Organization Form</display-name>
+		<servlet-name>ShowViewUgOfOrgFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowViewUgOfOrgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowViewUgOfOrgFormServlet</servlet-name>
+		<url-pattern>/ShowViewUgOfOrgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Add Role To Organization Form -->
+	<servlet>
+		<description>Show Add Role To Organization Form</description>
+		<display-name>Show Add Role To Organization Form</display-name>
+		<servlet-name>ShowAddRoleToOrgFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowAddRoleToOrgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddRoleToOrgFormServlet</servlet-name>
+		<url-pattern>/ShowAddRoleToOrgFormServlet</url-pattern>
+	</servlet-mapping>  
+	
+	<!-- Add Role To Organization -->
+	<servlet>
+		<description>Add Role To Organization</description>
+		<display-name>Add Role To Organization</display-name>
+		<servlet-name>AddRoleToOrgServlet</servlet-name>
+		<servlet-class>servlet.superadmin.AddRoleToOrgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddRoleToOrgServlet</servlet-name>
+		<url-pattern>/AddRoleToOrgServlet</url-pattern>
+	</servlet-mapping>
+	 
+	<!-- Show Add User To Organization Form -->
+	<servlet>
+		<description>Show Add User To Organization Form</description>
+		<display-name>Show Add User To Organization Form</display-name>
+		<servlet-name>ShowAddUserToOrgFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowAddUserToOrgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddUserToOrgFormServlet</servlet-name>
+		<url-pattern>/ShowAddUserToOrgFormServlet</url-pattern>
+	</servlet-mapping>
+	  
+	<!-- Add User To Organization -->
+	<servlet>
+		<description>Add User To Organization</description>
+		<display-name>Add User To Organization</display-name>
+		<servlet-name>AddUserToOrgServlet</servlet-name>
+		<servlet-class>servlet.superadmin.AddUserToOrgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddUserToOrgServlet</servlet-name>
+		<url-pattern>/AddUserToOrgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Add Authority To Organization -->
+	<servlet>
+		<description>Add Authority To Organization</description>
+		<display-name>Add Authority To Organization</display-name>
+		<servlet-name>AddAthyToOrgServlet</servlet-name>
+		<servlet-class>servlet.superadmin.AddAthyToOrgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddAthyToOrgServlet</servlet-name>
+		<url-pattern>/AddAthyToOrgServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- Delete Authority From Organization -->
+	<servlet>
+		<description>Delete Authority From Organization</description>
+		<display-name>Delete Authority From Organization</display-name>
+		<servlet-name>DelAthyFromOrgServlet</servlet-name>
+		<servlet-class>servlet.superadmin.DelAthyFromOrgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelAthyFromOrgServlet</servlet-name>
+		<url-pattern>/DelAthyFromOrgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Add User Group To Organization Form -->
+	<servlet>
+		<description>Show Add User Group To Organization Form</description>
+		<display-name>Show Add User Group To Organization Form</display-name>
+		<servlet-name>ShowAddUgToOrgFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowAddUgToOrgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAddUgToOrgFormServlet</servlet-name>
+		<url-pattern>/ShowAddUgToOrgFormServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- Add User Group To Organization -->
+	<servlet>
+		<description>Add User Group To Organization</description>
+		<display-name>Add User Group To Organization</display-name>
+		<servlet-name>AddUgToOrgServlet</servlet-name>
+		<servlet-class>servlet.superadmin.AddUgToOrgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddUgToOrgServlet</servlet-name>
+		<url-pattern>/AddUgToOrgServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Show Assign Search Engine To Organization Form -->
+	<servlet>
+		<description>Show Assign Search Engine To Organization Form</description>
+		<display-name>Show Assign Search Engine To Organization Form</display-name>
+		<servlet-name>ShowAssignSeToOrgFormServlet</servlet-name>
+		<servlet-class>servlet.superadmin.ShowAssignSeToOrgFormServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAssignSeToOrgFormServlet</servlet-name>
+		<url-pattern>/ShowAssignSeToOrgFormServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Assign Search Engine To Organization -->
+	<servlet>
+		<description>Assign Search Engine To Organization</description>
+		<display-name>Assign Search Engine To Organization</display-name>
+		<servlet-name>AssignSeToOrgServlet</servlet-name>
+		<servlet-class>servlet.superadmin.AssignSeToOrgServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AssignSeToOrgServlet</servlet-name>
+		<url-pattern>/AssignSeToOrgServlet</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

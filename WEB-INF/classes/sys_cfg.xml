@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sys_config>
+	<local_path>C:\AppServ\www\fidss\</local_path>
+	<database>
+		<driver_name>com.mysql.jdbc.Driver</driver_name>
+		<sub_protocol>mysql</sub_protocol>
+		<host>localhost</host>
+		<port>3306</port>
+		<database_name>fidss</database_name>
+		<use_unicode>true</use_unicode>
+		<character_encoding>utf-8</character_encoding>
+		<auto_reconnect>true</auto_reconnect>
+		<username>root</username>
+		<password>root</password>
+	</database>
+</sys_config>

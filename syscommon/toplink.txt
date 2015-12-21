@@ -1,0 +1,6 @@
+﻿<ul>
+	<li><a href="help.doc">系统帮助</a></li>
+	<li><a onclick="javascript:addFavorite('网络情报跟踪发现系统', location.href, '');" href="javascript:void(0);">收藏本页</a></li>
+	<li><a href="javascript:alertWin(400,300)">联系我们</a></li>
+	<li><a href="login/logout.jsp">注销登录</a></li>
+</ul>

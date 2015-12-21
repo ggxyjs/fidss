@@ -1,0 +1,53 @@
+	p{
+		font-family:arial;
+		
+	}
+	a{
+		color:#000;
+		font-family:arial;
+		
+	}
+	
+	.contentTree{
+		margin:0px;
+		padding:0px;
+	}
+	.contentTree ul{	/*子结点*/
+		margin-left:22px;	/* Left spacing */
+		padding-left:0px;
+	}
+	.contentTree li{	/* 结点 */ 
+		list-style-type:none;
+		vertical-align:middle;
+		
+	}
+	.contentTree li a{	/* 结点连接 */
+		color:#000;
+		font-weight: bold;
+		text-decoration:none;
+		font-family:arial;
+		font-size:14px;
+		padding-left:2px;
+	}
+	
+	.contentTree li a u{	/* 结点连接 */
+		color:#000;
+		font-weight: bold;
+		text-decoration:none;
+		font-family:arial;
+		font-size:14px;
+		padding-left:2px;
+	}
+	
+	/*.tree li a:visited{
+		color:purple;
+		font-weight: bold;
+		text-decoration: none;
+		border-bottom: 2px orange solid;
+	}*/
+	
+	.fontHasNew
+	{
+	    font-size : 12px;
+	    color : red;
+	}
